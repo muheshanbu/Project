@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(schema = "coupon")
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +15,7 @@ public class Coupon {
     private String code;
     private String expDate;
     private int denomination;
-/*    @ManyToOne
-    Company company;*/
+    @ManyToOne
+    Company company;
     //private boolean isIssued;
 }

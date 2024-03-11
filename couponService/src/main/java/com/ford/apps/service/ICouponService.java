@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ICouponService {
 
-    public Coupon createCoupon(Coupon coupon);
+    public Coupon createCoupon(int denomination);
 
-    public Coupon issueCoupon(long couponId, long companyId);
+    public List<Coupon> issueCoupon(double amount);
     public Coupon getCouponById(Long id);
     public List<Coupon> getAllCoupons();
 

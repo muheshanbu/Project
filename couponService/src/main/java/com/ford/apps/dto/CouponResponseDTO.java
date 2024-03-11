@@ -12,24 +12,21 @@ import java.util.List;
 @Getter
 @Setter
 public class CouponResponseDTO {
-    private class CouponsDTO {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private class CouponDTO {
         private Long id;
         private String name;
         private Integer denomination;
         private String code;
         private String expDate;
-        private boolean isIssued;
+
     }
     String companyName;
-    List<CouponResponseDTO.CouponsDTO> couponsDTOS=new ArrayList<>();
-//    public static CouponResponseDTO fromEntity(Coupon coupon) {
-//        CouponResponseDTO dto = new CouponResponseDTO();
-//        dto.setId(coupon.getCouponId());
-//        dto.setName(coupon.getName());
-//        dto.setDenomination(coupon.getDenomination());
-//        dto.setCode(coupon.getCode());
-//        dto.setExpDate(coupon.getExpDate());
-//        dto.setIssued(coupon.isIssued());
-//        return dto;
-//    }
+    List<CouponResponseDTO.CouponDTO> couponsDTOS=new ArrayList<>();
+    public void addCouponDTO(Long id,String name,Integer denomination,String code,String expDate){
+        this.couponsDTOS.add(new CouponDTO(id,name,denomination,code,expDate));
+    }
+
 }
