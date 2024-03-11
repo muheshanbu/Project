@@ -5,6 +5,7 @@ import com.ford.apps.dto.CouponResponseDTO;
 import com.ford.apps.entity.Company;
 import com.ford.apps.entity.Coupon;
 import com.ford.apps.repository.ICouponRepository;
+import com.ford.apps.service.CouponServiceImpl;
 import com.ford.apps.service.ICouponService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Map;
 @RequestMapping("/api/coupons")
 public class CouponController {
     @Autowired
-    private ICouponService couponService;
+    private CouponServiceImpl couponService;
 
     @GetMapping("/")
     public List<Coupon> getAllCoupons() {
@@ -32,15 +33,15 @@ public class CouponController {
         return ResponseEntity.ok(coupon);
     }
     @PostMapping("/generate/{amount}")
-    public Company generateCoupon(@RequestBody Coupon coupon){
-        Company company=couponService.createCoupon(coupon);
+    public ResponseEntity<CouponResponseDTO> generateCoupon(@RequestBody CouponCreateDTO coupon){
+       return new ResponseEntity<>(couponService.generateCoupons(coupon), HttpStatus.OK);
 
     }
 
     @GetMapping("/view_coupon/{company_name}")
-    public Company getCoupons(@PathVariable("company_name") String company_name){
+    public ResponseEntity<CouponResponseDTO> viewCoupons(@PathVariable("company_name") String companyName){
 
-
+    return new ResponseEntity<CouponResponseDTO>(couponService.viewCoupons(companyName),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

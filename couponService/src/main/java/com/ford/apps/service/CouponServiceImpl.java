@@ -1,5 +1,7 @@
 package com.ford.apps.service;
 
+import com.ford.apps.dto.CouponCreateDTO;
+import com.ford.apps.dto.CouponResponseDTO;
 import com.ford.apps.entity.Coupon;
 import com.ford.apps.repository.ICouponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,16 @@ public class CouponServiceImpl implements ICouponService{
     @Override
     public List<Coupon> getAllCoupons() {
         return couponRepository.findAll();
+    }
+
+    @Override
+    public CouponResponseDTO generateCoupons(CouponCreateDTO couponCreateDTO) {
+        return null;
+    }
+
+    @Override
+    public CouponResponseDTO viewCoupons(String companyName) {
+        return null;
     }
 
     @Override
