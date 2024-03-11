@@ -16,7 +16,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long company_id;
-    private String company_name;
+    private String companyName;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Coupon> coupon;

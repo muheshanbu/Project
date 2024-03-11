@@ -63,7 +63,7 @@ public class CouponServiceImpl implements ICouponService{
     @Override
     public CouponResponseDTO generateCoupons(CouponCreateDTO couponCreateDTO) {
         List<Coupon> coupons =issueCoupon(couponCreateDTO.getAmount());
-        Company company=companyRepository.findCompanyBycompany_name(couponCreateDTO.getName()).getFirst();
+        Company company=companyRepository.findByCompanyName(couponCreateDTO.getName()).get(0);
         CouponResponseDTO couponResponseDTO=new CouponResponseDTO();
         couponResponseDTO.setCompanyName(couponCreateDTO.getName());
 

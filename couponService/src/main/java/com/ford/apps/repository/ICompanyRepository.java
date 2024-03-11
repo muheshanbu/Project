@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ICompanyRepository extends JpaRepository<Company,Long> {
     //........xxxxxx
-    List<Company> findCompanyBycompany_name(String name);
+    List<Company> findByCompanyName(String name);
 
 }
