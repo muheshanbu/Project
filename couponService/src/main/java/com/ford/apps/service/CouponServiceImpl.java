@@ -63,7 +63,7 @@ public class CouponServiceImpl implements ICouponService{
     @Override
     public CouponResponseDTO generateCoupons(CouponCreateDTO couponCreateDTO) {
         List<Coupon> coupons =issueCoupon(couponCreateDTO.getAmount());
-        Company company=companyRepository.findByCompanyName(couponCreateDTO.getName()).get(0);
+        Company company=companyRepository.findByCompanyName(couponCreateDTO.getName());
         CouponResponseDTO couponResponseDTO=new CouponResponseDTO();
         couponResponseDTO.setCompanyName(couponCreateDTO.getName());
 
@@ -78,7 +78,14 @@ public class CouponServiceImpl implements ICouponService{
 
     @Override
     public CouponResponseDTO viewCoupons(String companyName) {
-        return null;
+        Company company=companyRepository.findByCompanyName(companyName);
+        CouponResponseDTO couponResponseDTO=new CouponResponseDTO();
+        couponResponseDTO.setCompanyName(companyName);
+        List<Coupon> coupons=company.getCoupon();
+        for(Coupon coupon:coupons){
+            couponResponseDTO.addCouponDTO(coupon.getCouponId(), coupon.getName(), coupon.getDenomination(), coupon.getCode(), coupon.getExpDate());
+        }
+        return couponResponseDTO;
     }
 
     @Override

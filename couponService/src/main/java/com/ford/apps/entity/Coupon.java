@@ -15,7 +15,7 @@ public class Coupon {
     private String code;
     private String expDate;
     private int denomination;
-    @ManyToOne
+    @ManyToOne(optional = false)
     Company company;
     //private boolean isIssued;
 }

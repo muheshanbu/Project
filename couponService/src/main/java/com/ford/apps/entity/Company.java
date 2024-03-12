@@ -18,7 +18,7 @@ public class Company {
     private Long company_id;
     private String companyName;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company" )
     private List<Coupon> coupon;
 
 }

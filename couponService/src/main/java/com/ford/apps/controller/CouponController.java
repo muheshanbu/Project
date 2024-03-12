@@ -22,17 +22,17 @@ public class CouponController {
     @Autowired
     private CouponServiceImpl couponService;
 
-    @GetMapping("/")
-    public List<Coupon> getAllCoupons() {
-        return couponService.getAllCoupons();
-    }
+//    @GetMapping("/")
+//    public List<Coupon> getAllCoupons() {
+//        return couponService.getAllCoupons();
+//    }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Coupon> getCouponById(@PathVariable Long id) {
-        Coupon coupon = couponService.getCouponById(id);
-        return ResponseEntity.ok(coupon);
-    }
-    @PostMapping("/generate/{amount}")
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Coupon> getCouponById(@PathVariable Long id) {
+//        Coupon coupon = couponService.getCouponById(id);
+//        return ResponseEntity.ok(coupon);
+//    }
+    @PostMapping("/generate")
     public ResponseEntity<CouponResponseDTO> generateCoupon(@RequestBody CouponCreateDTO coupon){
        return new ResponseEntity<>(couponService.generateCoupons(coupon), HttpStatus.OK);
 
