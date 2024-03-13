@@ -1,20 +1,25 @@
 package com.ford.demo.companyclient.controller;
 
-import com.ford.demo.companyclient.dto.Company;
+import com.ford.demo.companyclient.dto.CompanyDTO;
+import com.ford.demo.companyclient.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/api")
 public class CompanyController {
     @Autowired
-    CompanyClient companyClient;
-    @GetMapping("/id/{id}")
-    Company getCompanyById(@PathVariable("id") Integer id){
-        return companyClient.getCompanyById(id);
+    CompanyService companyService;
+    @PostMapping("/create")
+    public ResponseEntity<String> createCompanyEntity(@RequestBody CompanyDTO company){
+        System.out.println("Request Recieved");
+        return new ResponseEntity<String>(companyService.createCompany(company),HttpStatus.OK);
     }
+
 }

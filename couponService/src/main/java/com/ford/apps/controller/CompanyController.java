@@ -1,5 +1,6 @@
 package com.ford.apps.controller;
 
+import com.ford.apps.dto.CompanyDTO;
 import com.ford.apps.entity.Company;
 import com.ford.apps.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class CompanyController {
     CompanyServiceImpl companyService;
 
     @PostMapping("/create")
-    ResponseEntity<Company> createCompany(@RequestBody Company company){
-        return new ResponseEntity<Company>(companyService.addCompany(company), HttpStatus.OK);
+    ResponseEntity<Company> createCompany(@RequestBody CompanyDTO companyDTO){
+        System.out.println("Entered controller");
+        return new ResponseEntity<Company>(companyService.addCompany(companyDTO), HttpStatus.OK);
     }
 }

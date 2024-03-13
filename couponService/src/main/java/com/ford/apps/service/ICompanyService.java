@@ -1,6 +1,7 @@
 package com.ford.apps.service;
 
 import com.ford.apps.CouponManagementSystemApplication;
+import com.ford.apps.dto.CompanyDTO;
 import com.ford.apps.entity.Company;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import java.util.List;
 @Service
 public interface ICompanyService {
 
-    public Company addCompany(Company company);
+    public Company addCompany(CompanyDTO companyDTO);
 
     public void deleteCompany(Long company_id);
 

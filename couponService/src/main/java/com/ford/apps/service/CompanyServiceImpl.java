@@ -1,5 +1,6 @@
 package com.ford.apps.service;
 
+import com.ford.apps.dto.CompanyDTO;
 import com.ford.apps.entity.Company;
 import com.ford.apps.repository.ICompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,9 @@ public class CompanyServiceImpl implements ICompanyService{
     @Autowired
     ICompanyRepository companyRepository;
     @Override
-    public Company addCompany(Company company) {
+    public Company addCompany(CompanyDTO companyDTO) {
+        Company company=new Company();
+        company.setCompanyName(companyDTO.getName());
         return companyRepository.save(company);
     }
 
