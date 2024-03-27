@@ -1,9 +1,10 @@
 package com.ford.demo.identityservice.controller;
 
 
-import com.javatechie.dto.AuthRequest;
-import com.javatechie.entity.UserCredential;
-import com.javatechie.service.AuthService;
+
+import com.ford.demo.identityservice.dto.AuthRequest;
+import com.ford.demo.identityservice.entity.UserCredential;
+import com.ford.demo.identityservice.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
