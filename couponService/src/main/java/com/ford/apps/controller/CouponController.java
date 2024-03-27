@@ -18,6 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/coupons")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CouponController {
     @Autowired
     private CouponServiceImpl couponService;
