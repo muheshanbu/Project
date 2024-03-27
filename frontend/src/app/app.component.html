@@ -1,0 +1,38 @@
+
+<div>
+  <p-menubar [model] = "items" [style]="{'width':'100%'}">
+    <ng-template pTemplate="start">
+      <div class="menu-title">
+          <a routerLink="/home" class="navbar-type"> Coupon Management System</a>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="end">
+      
+    </ng-template>
+  </p-menubar>
+</div>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Coupon Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<app-dashboard></app-dashboard>

@@ -1,0 +1,82 @@
+<p>dashboard works!</p>
+
+<div>
+    <p-menubar [model]="items" [style]="{'width':'100%'}">
+        <ng-template pTemplate="start">
+
+        </ng-template>
+        <ng-template pTemplate="end">
+
+        </ng-template>
+    </p-menubar>
+</div>
+<div class="card shadow-5">
+    <div *ngIf="selectedTab === 'tab1'">
+        <form [formGroup]="couponForm" (ngSubmit)="generateRequestSubmit()" class="p-fluid">
+            <div class="p-field">
+                <label for="companyName">Company Name</label>
+                <!-- Company Name Input -->
+                <input id="companyName" type="text" pInputText formControlName="companyName">
+                <!-- Error Message for Company Name -->
+                <small class="p-error"
+                    *ngIf="couponForm.get('companyName')?.invalid && couponForm.get('companyName')?.touched">
+                    Company Name is required.
+                </small>
+            </div>
+            <div class="p-field">
+                <label for="amount">Amount</label>
+                <!-- Amount Input -->
+                <input id="amount" type="number" pInputText formControlName="amount">
+                <!-- Error Message for Amount -->
+                <small class="p-error" *ngIf="couponForm.get('amount')?.invalid && couponForm.get('amount')?.touched">
+                    A valid amount is required.
+                </small>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" pButton label="Generate" [disabled]="!couponForm.valid"></button>
+        </form>
+    </div>
+
+    <div *ngIf="selectedTab === 'tab2'">
+        View coupons is called
+        <form [formGroup]="viewForm" (ngSubmit)="generateViewSubmit()" class="p-fluid">
+            <div class="p-field">
+                <label for="companyName">Company Name</label>
+                <!-- Company Name Input -->
+                <input id="companyName" type="text" pInputText formControlName="companyName">
+                <!-- Error Message for Company Name -->
+                <small class="p-error"
+                    *ngIf="viewForm.get('companyName')?.invalid && viewForm.get('companyName')?.touched">
+                    Company Name is required.
+                </small>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" pButton label="Generate" [disabled]="!viewForm.valid"></button>
+        </form>
+    </div>
+
+    <div *ngIf="selectedTab === 'tab3'">
+        <!-- home.component.html -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Denomination</th>
+                    <th>Exp Date</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let coupon_response of couponResponse?.couponsDTOS">
+                    <td>{{ couponResponse?.companyName }}</td>
+                    <td>{{ coupon_response.id }}</td>
+                    <td>{{ coupon_response.denomination }}</td>
+                    <td>{{ coupon_response.expDate }}</td>
+                    <td>{{coupon_response.code }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>

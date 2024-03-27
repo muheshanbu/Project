@@ -1,0 +1,35 @@
+.menu-title {
+    padding-right: 10px;
+}
+
+/* Menubar customization */
+.p-menubar .p-menubar-root-list {
+    justify-content: flex-end;
+}
+
+.p-menubar {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.navbar-type {
+    font-size: 20px;
+    color: #007bff !important; /* Bootstrap brand color */
+    margin-right: auto; /* Pushes the menu items to the right */
+}
+
+.p-menubar .p-menuitem-link {
+    color: #495057; /* Bootstrap navbar item color */
+}
+
+.p-menubar .p-menuitem-link .p-menuitem-icon {
+    color: #495057;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 992px) {
+    .p-menubar .p-menubar-root-list {
+        justify-content: flex-start;
+    }
+}
